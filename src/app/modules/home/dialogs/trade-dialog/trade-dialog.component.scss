@@ -1,0 +1,153 @@
+.dialog-container {
+    padding: 10px 35px;
+    display: flex;
+    flex-direction: column;
+}
+
+.field-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-mdc-form-field:not(.input-balance) {
+    padding-top: 10px;
+    width: 100%;
+}
+
+.input-balance {
+    margin-top: -20px;
+}
+
+.close-button {
+    margin-left: auto;
+    border: none;
+    background: none;
+    margin-top: 24px;
+}
+
+.wallet-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #222426;
+}
+
+.dialog-title-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.dialog-title {
+    margin-top: 60px;
+    margin-left: 10px;
+}
+
+.seperator {
+    border-right: solid thin #ebebeb;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 20px;
+}
+
+.wallet-balance {
+    color: #2980ff;
+    font-size: 16pz;
+    font-weight: 600;
+}
+
+.mat-select-panel {
+    border-radius: 12px;
+}
+
+.dropDown-panel {
+    border-radius: 10px !important;
+    border: 1px solid gray !important;
+    position: absolute !important;
+    top: 50px !important;
+}
+
+.asset-icon {
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+}
+
+.wallet-icon {
+    width: 24px;
+    height: 24px;
+    padding-right: 12px;
+}
+
+.icon-text {
+    display: flex;
+    align-items: stretch;
+}
+
+.multi-field-container {
+    display: flex;
+    flex-direction: row;
+    gap: 37px;
+    align-items: center;
+
+    .mat-mdc-form-field {
+        width: 183px;
+    }
+
+    ::ng-deep .mat-mdc-text-field-wrapper {
+        background: linear-gradient(0, #ffffff 50%, #f5f5f5 50%);
+    }
+}
+
+::ng-deep .mat-mdc-select-arrow-wrapper {
+    background-image: url("../../../../../assets/icons/vector-1-stroke.svg");
+    background-repeat: no-repeat;
+    width: 14px;
+    background-position: center;
+
+    .mat-mdc-select-arrow {
+        opacity: 0;
+    }
+}
+
+.swap-button {
+    height: 38px;
+    width: 38px;
+    border-radius: 12px;
+    display: flex;
+    background: #ebebeb;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+::ng-deep .mdc-text-field {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    align-items: center;
+    z-index: 200;
+
+    .max-button {
+        border-radius: 8px;
+        background: #2980ff;
+        color: #ffffff;
+        font-size: 12px;
+        border: none;
+        height: 20px;
+    }
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.submit-button {
+    align-self: flex-end;
+}

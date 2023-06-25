@@ -1,0 +1,20 @@
+.app-button {
+    display: inline-block;
+    padding: 12px 24px 12px 24px;
+    height: 50px;
+    background-color: #2980FF;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+  
+  
+  &:hover {
+    background-color: #1b6fec;
+  }
+  
+  &:active {
+    background-color: #3480f3;
+  }
+}

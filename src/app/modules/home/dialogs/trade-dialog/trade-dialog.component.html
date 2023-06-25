@@ -1,0 +1,73 @@
+<div mat-dialog-title class="dialog-title-container">
+    <div class="dialog-title">Trade</div>
+    <button aria-label="close dialog" mat-dialog-close class="close-button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+<form class="dialog-container" [formGroup]="tradeFormGroup" (ngSubmit)="onSubmit()">
+  <div class="field-container">
+    <label>From</label>
+    <section>
+      <mat-form-field appearance="outline">
+        <mat-select formControlName="selectWalletControl" panelClass="dropDown-panel" [(value)]="selectedWallet">
+            <mat-select-trigger class="icon-text">
+                <img class="wallet-icon" src={{selectedWallet?.image}}/> <span class="wallet-name">{{ selectedWallet?.name }}</span> <span class="seperator"></span><span class="wallet-balance">{{selectedWallet?.total_usd_balance | currency}}</span> 
+            </mat-select-trigger>
+          <mat-option *ngFor="let wallet of wallets" [value]="wallet" class="icon-text">
+            <img class="wallet-icon" src={{wallet?.image}}/><span class="wallet-name">{{ wallet.name }}</span> <span class="seperator"></span><span class="wallet-balance">{{wallet.total_usd_balance | currency}}</span> 
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </section>
+  </div>
+  <div class="multi-field-container">
+    <div class="field-container">
+        <label>You pay</label>
+        <section>
+            <mat-form-field appearance="outline">
+              <mat-select formControlName="selectAssetControl" panelClass="dropDown-panel" [(value)]="selectedAsset">
+                  <mat-select-trigger class="icon-text">
+                    <img class="asset-icon" src={{selectedAsset?.logo}}/>
+                    <span class="wallet-name">{{ selectedAsset?.symbol }}</span> 
+                  </mat-select-trigger>
+                <mat-option *ngFor="let asset of assets" [value]="asset" class="icon-text">
+                  <img class="asset-icon" src={{asset.logo}}/>
+                  <span class="wallet-name">{{ asset.symbol }}</span> 
+                </mat-option>
+              </mat-select>
+              <div class="input-container">
+                 <input matInput [value]="selectedAsset?.balance" type="number" appStopPropagation formControlName="balanceControl" class="ellipsis">
+                 <button mat-flat-button class="max-button" appStopPropagation (click)="getMaxBalance()">Max</button>
+              </div>
+             
+            </mat-form-field>
+           
+        </section>
+      </div>
+      <button mat-icon-button class="swap-button" (click)="calcValue()">
+        <img class="swap-icon" src='../../../../../assets/icons/swap-vert.svg'/>
+      </button>      
+      <div class="field-container">
+        <label>You receive</label>
+        <section>
+            <mat-form-field appearance="outline">
+              <mat-select formControlName="selectCoinControl" panelClass="dropDown-panel" [(value)]="selectedCoin">
+                  <mat-select-trigger class="icon-text">
+                    <img class="asset-icon" src={{selectedCoin?.image}}/>
+                    <span class="wallet-name">{{ selectedCoin?.symbol }}</span> 
+                  </mat-select-trigger>
+                <mat-option *ngFor="let coin of coinsData" [value]="coin" class="icon-text">
+                  <img class="asset-icon" src={{coin.image}}/>
+                  <span class="wallet-name">{{ coin.symbol }}</span> 
+                </mat-option>
+              </mat-select>
+              <div class="input-container">
+                <input matInput type="number" readonly="true" class="ellipsis" appStopPropagation formControlName="calculatedControl">
+             </div>
+            </mat-form-field>
+        </section>
+      </div>
+    
+  </div>
+  <app-button title="Submit"  type="submit" class="submit-button" [disabled]="!tradeFormGroup.valid"></app-button>
+</form>
